@@ -18,6 +18,7 @@ const config: Config = {
         'bg-icons': '#F2F2F2',
         'gray-clean': 'rgba(255, 255, 255, 0.72)',
         'borders': 'rgba(255, 255, 255, 0.19)',
+        'bg-header': "#FAFAFA",
         'border-btn': "#BEBEBE",
         'green': '#53917E',
         'iron': '#6494AA',
@@ -28,6 +29,7 @@ const config: Config = {
         'secondary-hover': '#6D445A',
         'primary': '#2F323A',
         'third': '#ECE2D0',
+        'bg-btn': '#FEFEFE',
       },
       backgroundImage: {
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",

@@ -16,15 +16,15 @@ export default function Header() {
     enter: { opacity: 1 },
   };
   return (
-    <header className=" relative w-full py-5">
-      <nav className="flex w-full">
-        <div className="justify-between items-center flex w-full">
+    <header className=" relative w-full py-5 bg-bg-header my-5 px-5 rounded-full lg:px-9">
+      <nav className="flex w-full justify-between">
+        <div className="justify-between items-center flex w-full lg:w-auto">
           <Image
             src="logo.svg"
             width={178}
             height={32}
             alt="logo"
-            className="w-1/3 md:w-1/4 lg:w-1/6"
+            className="w-1/3 md:w-1/4 lg:w-[150px]"
           />
           <div className="lg:hidden">
             <Hamburger
@@ -61,7 +61,7 @@ export default function Header() {
           </motion.main>
         )}
         <div className="hidden lg:!flex">
-          <ul className="flex gap-5 text-center w-full">
+          <ul className="flex gap-5 text-center w-full items-center">
             <li>
               <Link href="/" onClick={showNavBar}>
                 Página inicial
@@ -74,12 +74,15 @@ export default function Header() {
               <Link href="/contact">Sobre</Link>
             </li>
           </ul>
-          <div>
-            <Link href="/contact">Contate-nos</Link>
-            <Link href="/contact" className="border-border-btn px-9 py-4">
-              Login
-            </Link>
-          </div>
+        </div>
+        <div className="hidden lg:!flex gap-5 justify-between items-center">
+          <Link href="/contact">Contate-nos</Link>
+          <Link
+            href="/contact"
+            className="border-border-btn border px-9 py-4 bg-white rounded-full"
+          >
+            Login
+          </Link>
         </div>
       </nav>
     </header>
