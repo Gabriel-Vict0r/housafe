@@ -61,9 +61,13 @@ export default function Header() {
           </motion.main>
         )}
         <div className="hidden lg:!flex">
-          <ul className="flex gap-5 text-center w-full items-center">
+          <ul className="flex gap-8 text-center w-full items-center">
             <li>
-              <Link href="/" onClick={showNavBar}>
+              <Link
+                href="/"
+                onClick={showNavBar}
+                className="hover:border-b-2 hover:border-border-btn transition-colors"
+              >
                 Página inicial
               </Link>
             </li>
@@ -78,8 +82,8 @@ export default function Header() {
         <div className="hidden lg:!flex gap-5 justify-between items-center">
           <Link href="/contact">Contate-nos</Link>
           <Link
-            href="/contact"
-            className="border-border-btn border px-9 py-4 bg-white rounded-full"
+            href="/admin"
+            className="border-border-btn border px-9 py-4 bg-white rounded-full hover:bg-secondary transition-colors hover:border-secondary hover:text-white"
           >
             Login
           </Link>
