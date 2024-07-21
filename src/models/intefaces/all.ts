@@ -10,5 +10,6 @@ export interface IFilter {
 export interface IType {
     id: number;
     description: string;
-    status: string;
+    status?: string;
+
 }

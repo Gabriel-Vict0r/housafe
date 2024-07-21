@@ -16,7 +16,6 @@ import withReactContent from "sweetalert2-react-content";
 import showSwal from "./ModalMessage";
 
 const ImmobileForm = () => {
-  const { data: session, status } = useSession();
   const SwalForm = withReactContent(Swal);
   //console.log(session?.user);
   const [brokers, setBrokers] = useState<TBroker[]>([]);
