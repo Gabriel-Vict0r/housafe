@@ -2,30 +2,30 @@
 import Image from "next/image";
 import Link from "next/link";
 import Hamburger from "hamburger-react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion";
 
 import logoImg from "../../../public/logo_black.png";
 import { useState } from "react";
+import LinkAnimated from "./LinkAnimated";
 export default function Header() {
   const [toggleHamburguer, setToggleHamburguer] = useState<boolean>(false);
   const showNavBar = () => {
     toggleHamburguer ? setToggleHamburguer(false) : setToggleHamburguer(true);
   };
-  const variants = {
-    hidden: { opacity: 0 },
-    enter: { opacity: 1 },
+  const variants: Variants = {
+    hidden: {
+      //opacity: 0,
+      right: -300,
+    },
+    enter: { opacity: 1, right: 0 },
   };
   return (
     <header className=" relative w-full py-5 bg-bg-header my-5 px-5 rounded-full lg:px-9">
       <nav className="flex w-full justify-between">
         <div className="justify-between items-center flex w-full lg:w-auto">
-          <Image
-            src="logo.svg"
-            width={178}
-            height={32}
-            alt="logo"
-            className="w-1/3 md:w-1/4 lg:w-[150px]"
-          />
+          <Link href="/">
+            <Image src="logo.svg" width={130} height={32} alt="logo" />
+          </Link>
           <div className="lg:hidden">
             <Hamburger
               color="#6D445A"
@@ -41,7 +41,7 @@ export default function Header() {
             variants={variants}
             initial="hidden"
             animate="enter"
-            transition={{ type: "linear" }}
+            transition={{ type: "linear", delay: 7000 }}
           >
             <div className="bg-white h-screen absolute right-0 top-20 w-full transition-all py-5">
               <ul className="flex flex-col gap-5 text-center">
@@ -51,10 +51,14 @@ export default function Header() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/immobile">Imóveis</Link>
+                  <Link href="/immobile" onClick={showNavBar}>
+                    Imóveis
+                  </Link>
                 </li>
                 <li>
-                  <Link href="/contact">Sobre</Link>
+                  <Link href="/contact" onClick={showNavBar}>
+                    Sobre
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -63,24 +67,18 @@ export default function Header() {
         <div className="hidden lg:!flex">
           <ul className="flex gap-8 text-center w-full items-center">
             <li>
-              <Link
-                href="/"
-                onClick={showNavBar}
-                className="hover:border-b-2 hover:border-border-btn transition-colors"
-              >
-                Página inicial
-              </Link>
+              <LinkAnimated route="/" content="Página Inicial" />
             </li>
             <li>
-              <Link href="/immobile">Imóveis</Link>
+              <LinkAnimated route="/immobile" content="Imóveis" />
             </li>
             <li>
-              <Link href="/contact">Sobre</Link>
+              <LinkAnimated route="/contact" content="sobre" />
             </li>
           </ul>
         </div>
         <div className="hidden lg:!flex gap-5 justify-between items-center">
-          <Link href="/contact">Contate-nos</Link>
+          <LinkAnimated route="/contact" content="Contate-nos" />
           <Link
             href="/admin"
             className="border-border-btn border px-9 py-4 bg-white rounded-full hover:bg-secondary transition-colors hover:border-secondary hover:text-white"

@@ -1,5 +1,3 @@
-"use client";
-
 import Header from "@/components/Header";
 import Image from "next/image";
 import Footer from "@/components/Footer";
@@ -10,6 +8,7 @@ import globalImg from "../../public/map.png";
 import calendarImg from "../../public/calendar.png";
 import penImg from "../../public/pen.png";
 import CarouselFinal from "@/components/CarouselFinal";
+import Filters from "@/components/Home/Filters";
 
 export default function Home() {
   return (
@@ -25,6 +24,7 @@ export default function Home() {
             Oferecemos as melhores opções para você comprar, <br /> vender ou
             alugar chom facilidade e segurança.
           </p>
+          <Filters />
         </div>
 
         <Image src={hotel1Img} alt="" />

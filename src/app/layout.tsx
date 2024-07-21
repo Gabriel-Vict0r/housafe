@@ -24,10 +24,8 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`${poppins.className} px-3 lg:px-10`}>
-        <NexthAuthSessionProvider>
-          <Header />
-          {children}
-        </NexthAuthSessionProvider>
+        <Header />
+        {children}
       </body>
     </html>
   );
