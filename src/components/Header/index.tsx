@@ -20,8 +20,8 @@ export default function Header() {
     enter: { opacity: 1, right: 0 },
   };
   return (
-    <header className=" relative w-full py-5 bg-bg-header my-5 px-5 rounded-full lg:px-9">
-      <nav className="flex w-full justify-between">
+    <header className="w-full py-5 bg-bg-header my-5 px-5 rounded-full lg:px-9 z-50 fixed top-0 right-0">
+      <nav className="flex w-full justify-between z-50">
         <div className="justify-between items-center flex w-full lg:w-auto">
           <Link href="/">
             <Image src="logo.svg" width={130} height={32} alt="logo" />
@@ -43,7 +43,7 @@ export default function Header() {
             animate="enter"
             transition={{ type: "linear", delay: 7000 }}
           >
-            <div className="bg-white h-screen absolute right-0 top-20 w-full transition-all py-5">
+            <div className="bg-white h-screen absolute right-0 top-20 w-full transition-all py-5 z-50">
               <ul className="flex flex-col gap-5 text-center">
                 <li>
                   <Link href="/" onClick={showNavBar}>

@@ -39,10 +39,13 @@ const Filters = async (props: Props) => {
     });
   })) as IType[];
   return (
-    <form className="w-full rounded-3xl bg-white text-color-text-filter p-4">
+    <form className="w-full rounded-3xl bg-white text-color-text-filter p-4 absolute bottom-[-180px] left-0 lg:relative lg:bottom-0 lg:flex lg:gap-4 lg:rounded-full text-center">
       <InputFilter arrTypes={convertedTypes} name="Tipo" />
       <InputFilter arrTypes={convertedCategories} name="Categoria" />
       <InputFilter arrTypes={citiesArr} name="Cidade" />
+      <button type="submit">
+        {window.innerWidth < 768 ? "icone" : "buscar"}
+      </button>
     </form>
   );
 };

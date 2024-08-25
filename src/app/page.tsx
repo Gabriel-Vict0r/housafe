@@ -12,9 +12,9 @@ import Filters from "@/components/Home/Filters";
 
 export default function Home() {
   return (
-    <main className="">
-      <div className="flex flex-col md:flex-row justify-around w-full py-5 bg-gradient-to-r from-secondary to-third rounded-3xl px-5 gap-5">
-        <div className="flex flex-col pt-10 w-full">
+    <main className="mt-32">
+      <div className="flex flex-col md:flex-row justify-around w-full p-5 pb-10 bg-gradient-to-r from-secondary to-third rounded-3xl gap-5 relative z-20">
+        <div className="flex flex-col pt-10 w-full lg:w-auto">
           <p className="text-xl lg:text-lg">Bem vindo(a) ao HouseSafe</p>
           <h1 className="text-4xl font-bold lg:text-7xl py-8">
             Encontre seu <br />
@@ -22,12 +22,18 @@ export default function Home() {
           </h1>
           <p className="text-lg">
             Oferecemos as melhores opções para você comprar, <br /> vender ou
-            alugar chom facilidade e segurança.
+            alugar com facilidade e segurança.
           </p>
           <Filters />
         </div>
 
-        <Image src={hotel1Img} alt="" />
+        <Image
+          src="/hotel_example_1.png"
+          width={592.5}
+          height={515}
+          alt="ilustração de um imóvel"
+          className="md:w-[400px] md:h-auto object-contain"
+        />
       </div>
 
       {/* <div className="h-80 flex flex-col justify-center items-center m-auto">
