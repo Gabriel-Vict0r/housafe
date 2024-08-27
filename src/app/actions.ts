@@ -18,7 +18,7 @@ export async function getFilters({ route, tag }: IFilter) {
             },
         });
         const filters = filter.json();
-        console.log(filters);
+        //console.log(filters);
         return filters;
     } catch (error: any) {
         throw new Error(`erro ao obter dados: ${error.message}`);

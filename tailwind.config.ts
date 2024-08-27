@@ -1,5 +1,5 @@
 import type { Config } from "tailwindcss";
-
+import { IoIosSearch } from "react-icons/io";
 const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
@@ -37,6 +37,9 @@ const config: Config = {
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
+      content: {
+        'btn-submit': "'teste'",
+      }
     },
   },
   daisyui: {

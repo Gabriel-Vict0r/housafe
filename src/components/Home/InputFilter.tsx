@@ -10,7 +10,7 @@ const InputFilter = ({ arrTypes, name }: IInputLocal) => {
     <select
       name={name}
       id={name}
-      className="w-full p-2 text-color-text-filter border-2 rounded-xl mb-3"
+      className="w-full p-2 text-color-text-filter border-2 rounded-xl mb-3 lg:rounded-3xl lg:mb-0 lg:appearance-none"
       defaultValue="types"
     >
       <option>{name}</option>
