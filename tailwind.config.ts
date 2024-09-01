@@ -30,6 +30,7 @@ const config: Config = {
         'secondary-hover': '#6D445A',
         'primary': '#2F323A',
         'third': '#ECE2D0',
+        'secondary-64-opacity': 'rgba(168, 112, 138, 0.64)',
         'bg-btn': '#FEFEFE',
       },
       backgroundImage: {

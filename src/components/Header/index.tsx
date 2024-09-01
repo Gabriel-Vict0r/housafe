@@ -13,8 +13,19 @@ export default function Header() {
     toggleHamburguer ? setToggleHamburguer(false) : setToggleHamburguer(true);
   };
   const variants: Variants = {
-    open: { opacity: 1, x: 0, y: 0, display: "block" },
-    closed: { opacity: 0, x: 180, display: "none" },
+    open: {
+      height: "100vh", // ou o tamanho máximo desejado
+      transition: { duration: 0.5, ease: "easeInOut" },
+      x: 0,
+      y: 0,
+      display: "block",
+    },
+    closed: {
+      x: 180,
+      display: "none",
+      height: 0,
+      transition: { duration: 0.5, ease: "easeInOut" },
+    },
   };
   return (
     <header className="w-full py-5 bg-bg-header my-5 px-5 rounded-full lg:px-9 z-50 fixed top-0 right-0">
@@ -34,11 +45,11 @@ export default function Header() {
           </div>
         </div>
         {toggleHamburguer && (
-          <motion.main
+          <motion.div
             variants={variants}
-            initial={{ opacity: 0 }}
+            initial="closed"
             animate={toggleHamburguer ? "open" : "closed"}
-            transition={{ duration: 0.2, ease: "easeInOut" }}
+            transition={{ duration: 2, ease: "linear" }}
           >
             <div className="bg-white h-screen absolute right-0 top-20 w-full transition-all py-5 z-50">
               <ul className="flex flex-col gap-5 text-center">
@@ -59,7 +70,7 @@ export default function Header() {
                 </li>
               </ul>
             </div>
-          </motion.main>
+          </motion.div>
         )}
         <div className="hidden lg:!flex">
           <ul className="flex gap-8 text-center w-full items-center">
