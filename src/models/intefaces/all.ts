@@ -13,3 +13,9 @@ export interface IType {
     status?: string;
 
 }
+
+export interface IOportunities {
+    urlImage: string;
+    title: string;
+    content: string;
+}

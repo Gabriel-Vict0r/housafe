@@ -9,6 +9,8 @@ import calendarImg from "../../public/calendar.png";
 import penImg from "../../public/pen.png";
 import CarouselFinal from "@/components/CarouselFinal";
 import Filters from "@/components/Home/Filters";
+import Oportunity from "@/components/Home/Oportunity";
+import { oportunities } from "@/utils/contentOportunities";
 
 export default function Home() {
   return (
@@ -36,11 +38,23 @@ export default function Home() {
         />
       </div>
 
-      {/* <div className="h-80 flex flex-col justify-center items-center m-auto">
-        <p>Ofertas especiais para quem busca um investimento certeiro.</p>
-        <p className="font-bold text-5xl pt-2">Oportunidades Exclusivas</p>
+      <div className="mt-[240px] md:mt-[290px] lg:mt-10 flex flex-col justify-center items-center m-auto text-center p-5">
+        <p className="text-base font-normal">
+          Ofertas especiais para quem busca um investimento certeiro.
+        </p>
+        <p className="font-bold text-3xl pt-2">Oportunidades Exclusivas</p>
       </div>
-
+      <section className="flex flex-col gap-5 p-5 lg:flex-row lg:flex-nowrap">
+        {oportunities.map((value, index: number) => (
+          <Oportunity
+            key={index}
+            urlImage={value.urlImage}
+            title={value.title}
+            content={value.content}
+          />
+        ))}
+      </section>
+      {/*
       <div className="h-80 flex justify-around items-center w-10/12 m-auto">
         <div className="w-3/12">
           <Image src={globalImg} alt="" />

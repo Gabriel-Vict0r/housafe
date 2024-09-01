@@ -5,6 +5,7 @@ import { fetchFilter } from "@/app/actions";
 import { IType } from "@/models/intefaces/all";
 import getFilters from "@/utils/functionFetch";
 import { IoIosSearch } from "react-icons/io";
+import { useFormik } from "formik";
 type Props = {};
 
 const Filters = (props: Props) => {
@@ -38,15 +39,45 @@ const Filters = (props: Props) => {
     };
     fetchFilters();
   }, []);
+
+  const formik = useFormik({
+    initialValues: {
+      type: "venda",
+      category: "casa",
+      city: "BARREIRAS",
+    },
+    onSubmit: (values) => {
+      console.log(values, "vai redirecionar para outra página.");
+    },
+  });
   return (
-    <form className="w-full rounded-3xl bg-white text-color-text-filter p-4 absolute bottom-[-170px] pb-8 left-0 shadow-2xl md:bottom-[-230px] lg:relative lg:bottom-0 lg:flex lg:gap-4 lg:rounded-full text-center lg:items-center lg:mt-5">
-      <InputFilter arrTypes={types!} name="Tipo" />
-      <InputFilter arrTypes={categories} name="Categoria" />
-      <InputFilter arrTypes={cities} name="Cidade" />
+    <form
+      className="w-full rounded-3xl bg-white text-color-text-filter p-4 absolute bottom-[-170px] pb-8 lg:pb-4 left-0 shadow-2xl md:bottom-[-230px] lg:relative lg:bottom-0 lg:flex lg:gap-4 lg:rounded-full text-center lg:items-center lg:mt-5"
+      method="POST"
+      onSubmit={formik.handleSubmit}
+    >
+      <InputFilter
+        arrTypes={types}
+        name="type"
+        label="Tipo"
+        handleInput={formik.handleChange}
+      />
+      <InputFilter
+        arrTypes={categories}
+        name="category"
+        label="Categoria"
+        handleInput={formik.handleChange}
+      />
+      <InputFilter
+        arrTypes={cities}
+        name="city"
+        label="Cidade"
+        handleInput={formik.handleChange}
+      />
       <div className="w-full absolute bottom-[-40px] left-0 lg:w-auto lg:!static">
         <button
           type="submit"
-          className="text-xl p-5 bg-primary text-white rounded-full"
+          className="text-xl p-5 bg-primary text-white rounded-full hover:bg-black transition-colors"
         >
           <IoIosSearch />
         </button>
