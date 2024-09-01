@@ -1,3 +1,4 @@
+"use client";
 import { IType } from "@/models/intefaces/all";
 import React from "react";
 
@@ -16,7 +17,7 @@ const InputFilter = ({ arrTypes, name, label, handleInput }: IInputLocal) => {
       defaultValue={label}
       onChange={handleInput}
     >
-      <option selected value={label}>
+      <option value={label} disabled>
         {label}
       </option>
       {arrTypes.map((type) => (

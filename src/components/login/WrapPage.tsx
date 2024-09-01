@@ -39,10 +39,10 @@ const WrapPage = () => {
     },
   });
   return (
-    <main className="w-full flex gap-2 md:flex-1 h-screen justify-center items-center overflow-hidden">
+    <main className="w-full flex gap-2 md:flex-1 justify-center items-center overflow-hidden mt-40">
       <form
         method="post"
-        className="w-4/5 md:w-1/2 flex flex-col gap-6 md:px-28"
+        className="w-4/5 md:w-1/2 flex flex-col gap-6 md:px-5 lg:px-28"
         onSubmit={formik.handleSubmit}
       >
         <div className="flex flex-col gap-3">
@@ -93,10 +93,10 @@ const WrapPage = () => {
         </button>
       </form>
       <Image
-        className="hidden md:w-1/2 md:object-cover md:block"
+        className="hidden md:w-1/2 md:object-cover md:block md:h-[476.76px] rounded-xl"
         src="/cover-admin.jpg"
         width={663}
-        height={1024}
+        height={676.76}
         alt="imagem de um imóvel"
         quality={100}
         priority

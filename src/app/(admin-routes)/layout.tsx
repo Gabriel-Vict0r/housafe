@@ -12,7 +12,7 @@ export default async function PrivateLayout({ children }: PrivateLayoutProps) {
   const session = await getServerSession(authOptions);
   //console.log(session);
   if (!session) {
-    redirect("/immobiles");
+    redirect("/admin");
   }
   return (
     <main>

@@ -19,3 +19,24 @@ export interface IOportunities {
     title: string;
     content: string;
 }
+
+export interface IImmobileItemProps {
+    id: string;
+    title: string;
+    description: string;
+    bedrooms: number;
+    size: number;
+    address: {
+        city: string;
+        state: string;
+    };
+    type: {
+        description: string;
+    };
+    Images: [
+        {
+            id: string;
+            url: string;
+        },
+    ]
+}

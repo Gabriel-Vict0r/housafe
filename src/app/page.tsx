@@ -7,10 +7,10 @@ import hotel2Img from "../../public/hotel_example_2.png";
 import globalImg from "../../public/map.png";
 import calendarImg from "../../public/calendar.png";
 import penImg from "../../public/pen.png";
-import CarouselFinal from "@/components/CarouselFinal";
 import Filters from "@/components/Home/Filters";
 import Oportunity from "@/components/Home/Oportunity";
 import { oportunities } from "@/utils/contentOportunities";
+import CarouselHome from "@/components/Home/CarouselHome";
 
 export default function Home() {
   return (
@@ -54,51 +54,13 @@ export default function Home() {
           />
         ))}
       </section>
-      {/*
-      <div className="h-80 flex justify-around items-center w-10/12 m-auto">
-        <div className="w-3/12">
-          <Image src={globalImg} alt="" />
-
-          <p className="font-bold my-3 text-2xl">Explore nossas ofertas</p>
-
-          <p>
-            Navegue pelo nosso catálogo online e encontre o imóvel que atende às
-            suas necessidades.
-          </p>
-        </div>
-
-        <div className="w-3/12">
-          <Image src={calendarImg} alt="" />
-
-          <p className="font-bold my-3 text-2xl">Agende uma Visita</p>
-
-          <p>
-            Marque uma visita guiada com um de nossos corretores especializados
-            para conhecer o imóvel de perto.
-          </p>
-        </div>
-
-        <div className="w-3/12">
-          <Image src={penImg} alt="" />
-
-          <p className="font-bold my-3 text-2xl">Conclua a Compra</p>
-
-          <p>
-            Finalize a negociação com segurança e tranquilidade com a ajuda da
-            nossa equipe.
-          </p>
-        </div>
+      <div className="lg:mt-10 flex flex-col justify-center items-start m-auto  p-5">
+        <p className="text-base font-normal">Os melhores imóveis da região</p>
+        <h2 className="font-bold text-3xl pt-2">Imóveis recentes</h2>
       </div>
-
-      <div className="h-72 flex items-center px-36">
-        <div className="flex flex-col">
-          <p>Os melhores imóveis da região</p>
-          <p className="font-bold text-5xl mt-5">Imóveis recentes</p>
-        </div>
-      </div> */}
-
-      {/* <CarouselFinal /> */}
-
+      <section className="w-full">
+        <CarouselHome />
+      </section>
       {/* <div className="flex justify-around w-11/12 mx-auto py-5 bg-gradient-to-r from-secondary to-third rounded-3xl">
         <div className="flex flex-col mt-10">
           <p className="font-bold text-7xl py-8">
