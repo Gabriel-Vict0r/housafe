@@ -14,23 +14,28 @@ export default function Header() {
   };
   const variants: Variants = {
     open: {
-      height: "100vh", // ou o tamanho máximo desejado
-      transition: { duration: 0.5, ease: "easeInOut" },
-      x: 0,
-      y: 0,
-      display: "block",
+      position: "absolute",
+      width: "100%",
+      height: "auto",
+      top: "0",
+      left: 0,
+      z: -10,
+      transition: { duration: 0.6, ease: "easeIn" },
     },
     closed: {
-      x: 180,
-      display: "none",
-      height: 0,
-      transition: { duration: 0.5, ease: "easeInOut" },
+      position: "absolute",
+      width: "100%",
+      height: "0px",
+      top: -700,
+      left: 0,
+      z: -10,
+      transition: { duration: 0.6, ease: "easeOut" },
     },
   };
   return (
-    <header className="w-full py-5 bg-bg-header my-5 px-5 rounded-full lg:px-9 z-50 fixed top-0 right-0">
+    <header className="w-full py-5 bg-bg-header my-5 px-5 rounded-full lg:px-9 z-50 fixed top-0 left-0">
       <nav className="flex w-full justify-between z-50">
-        <div className="justify-between items-center flex w-full lg:w-auto">
+        <div className="justify-between items-center flex w-full lg:w-auto z-50">
           <Link href="/">
             <Image src="logo.svg" width={130} height={32} alt="logo" />
           </Link>
@@ -51,7 +56,7 @@ export default function Header() {
             animate={toggleHamburguer ? "open" : "closed"}
             transition={{ duration: 2, ease: "linear" }}
           >
-            <div className="bg-white h-screen absolute right-0 top-20 w-full transition-all py-5 z-50">
+            <div className="bg-white absolute h-screen right-0 top-20 w-full transition-all py-5 z-40">
               <ul className="flex flex-col gap-5 text-center">
                 <li>
                   <Link href="/" onClick={showNavBar}>

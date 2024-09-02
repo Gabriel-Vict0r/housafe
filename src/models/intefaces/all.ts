@@ -40,3 +40,9 @@ export interface IImmobileItemProps {
         },
     ]
 }
+
+export interface ISocialMedia {
+    url: string;
+    icon: React.ReactElement;
+    name: string;
+}

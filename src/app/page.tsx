@@ -1,6 +1,6 @@
 import Header from "@/components/Header";
 import Image from "next/image";
-import Footer from "@/components/Footer";
+import Footer from "@/components/Footer/Footer";
 
 import hotel1Img from "../../public/hotel_example_1.png";
 import hotel2Img from "../../public/hotel_example_2.png";
@@ -83,7 +83,7 @@ export default function Home() {
         />
       </section>
 
-      {/* <Footer /> */}
+      <Footer />
     </main>
   );
 }

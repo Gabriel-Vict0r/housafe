@@ -1,11 +1,11 @@
 "use client";
-import React, { FormEventHandler, useState } from "react";
+import React, { FormEventHandler, MouseEvent, useState } from "react";
 
 type Props = {};
 
 const NewsLetterForm = (props: Props) => {
   const [email, setEmail] = useState<string>("");
-  function subscribe(e: Event) {
+  function subscribe(e: MouseEvent<HTMLInputElement>) {
     e.preventDefault();
     console.log(email);
   }
@@ -24,7 +24,7 @@ const NewsLetterForm = (props: Props) => {
         type="submit"
         value="Assinar"
         className="absolute right-0 top-0 py-3 px-5 lg:py-5 md:px-10 bg-primary text-white rounded-3xl lg:rounded-full cursor-pointer transition-colors hover:bg-black border border-solid border-primary"
-        onClick={subscribe}
+        onClick={(e) => subscribe(e)}
       />
     </form>
   );
