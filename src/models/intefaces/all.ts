@@ -46,3 +46,13 @@ export interface ISocialMedia {
     icon: React.ReactElement;
     name: string;
 }
+
+
+export interface ILink {
+    label: string;
+    link: string;
+}
+export interface ILinksFooter {
+    title: string;
+    arrayLinks: ILink[];
+}

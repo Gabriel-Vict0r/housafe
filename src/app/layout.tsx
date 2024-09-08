@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
-import { AppProps } from "next/app";
-import NexthAuthSessionProvider from "@/providers/sessionProvider";
 import Header from "@/components/Header";
 
 const poppins = Poppins({
