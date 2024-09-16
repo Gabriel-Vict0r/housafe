@@ -64,7 +64,7 @@ export default function Header() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/immobile" onClick={showNavBar}>
+                  <Link href="/properties" onClick={showNavBar}>
                     Imóveis
                   </Link>
                 </li>
@@ -83,7 +83,7 @@ export default function Header() {
               <LinkAnimated route="/" content="Página Inicial" />
             </li>
             <li>
-              <LinkAnimated route="/immobile" content="Imóveis" />
+              <LinkAnimated route="/properties" content="Imóveis" />
             </li>
             <li>
               <LinkAnimated route="/contact" content="sobre" />

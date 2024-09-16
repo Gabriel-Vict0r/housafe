@@ -8,8 +8,8 @@ export interface IFilter {
 }
 
 export interface IType {
-    id: number;
-    description: string;
+    id?: number;
+    description?: string;
     status?: string;
 
 }

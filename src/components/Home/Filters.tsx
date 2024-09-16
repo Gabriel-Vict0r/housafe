@@ -6,12 +6,12 @@ import { IType } from "@/models/intefaces/all";
 import getFilters from "@/utils/functionFetch";
 import { IoIosSearch } from "react-icons/io";
 import { useFormik } from "formik";
+import { useFiltersContext } from "@/contexts/FilterContext";
 type Props = {};
 
 const Filters = (props: Props) => {
-  const [types, setTypes] = useState<IType[]>([]);
-  const [categories, setCategories] = useState<IType[]>([]);
-  const [cities, setCities] = useState<IType[]>([]);
+  const { types, setTypes, cities, setCities, categories, setCategories } =
+    useFiltersContext();
   useEffect(() => {
     const fetchFilters = async () => {
       const typesFetch = await getFilters("get-types");
@@ -51,38 +51,46 @@ const Filters = (props: Props) => {
     },
   });
   return (
-    <form
-      className="w-full rounded-3xl bg-white text-color-text-filter p-4 absolute bottom-[-170px] pb-8 lg:pb-4 left-0 shadow-2xl md:bottom-[-230px] lg:relative lg:bottom-0 lg:flex lg:gap-4 lg:rounded-full text-center lg:items-center lg:mt-5"
-      method="POST"
-      onSubmit={formik.handleSubmit}
-    >
-      <InputFilter
-        arrTypes={types}
-        name="type"
-        label="Tipo"
-        handleInput={formik.handleChange}
-      />
-      <InputFilter
-        arrTypes={categories}
-        name="category"
-        label="Categoria"
-        handleInput={formik.handleChange}
-      />
-      <InputFilter
-        arrTypes={cities}
-        name="city"
-        label="Cidade"
-        handleInput={formik.handleChange}
-      />
-      <div className="w-full absolute bottom-[-40px] left-0 lg:w-auto lg:!static">
-        <button
-          type="submit"
-          className="text-xl p-5 bg-primary text-white rounded-full hover:bg-black transition-colors"
+    <>
+      {types.length > 0 && categories.length > 0 && cities.length > 0 ? (
+        <form
+          className="w-full rounded-3xl bg-white text-color-text-filter p-4 absolute bottom-[-170px] pb-8 lg:pb-4 left-0 shadow-2xl md:bottom-[-230px] lg:relative lg:bottom-0 lg:flex lg:gap-4 lg:rounded-full text-center lg:items-center lg:mt-5"
+          method="POST"
+          onSubmit={formik.handleSubmit}
         >
-          <IoIosSearch />
-        </button>
-      </div>
-    </form>
+          <InputFilter
+            arrTypes={types}
+            name="type"
+            label="Tipo"
+            handleInput={formik.handleChange}
+          />
+          <InputFilter
+            arrTypes={categories}
+            name="category"
+            label="Categoria"
+            handleInput={formik.handleChange}
+          />
+          <InputFilter
+            arrTypes={cities}
+            name="city"
+            label="Cidade"
+            handleInput={formik.handleChange}
+          />
+          <div className="w-full absolute bottom-[-40px] left-0 lg:w-auto lg:!static">
+            <button
+              type="submit"
+              className="text-xl p-5 bg-primary text-white rounded-full hover:bg-black transition-colors"
+            >
+              <IoIosSearch />
+            </button>
+          </div>
+        </form>
+      ) : (
+        <div className="z-[999] fixed top-0 left-0 h-screen w-screen bg-white flex items-center justify-center">
+          <span className="loading loading-ring loading-lg"></span>
+        </div>
+      )}
+    </>
   );
 };
 
