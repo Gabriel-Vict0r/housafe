@@ -1,14 +1,12 @@
 "use client";
 
 import Footer from "@/components/Footer/Footer";
-import Header from "@/components/Header";
-import roomImg from "../../../public/cil_room.png";
-import areaImg from "../../../public/area.png";
-
-import Image from "next/image";
-import { SlidersHorizontal, Search } from "lucide-react";
 import { useState, useEffect } from "react";
 import Filters from "@/components/Home/Filters";
+import SubTitle from "@/components/shared/SubTitle";
+import CardCarousel from "@/components/shared/CardCarousel";
+import { Fade } from "react-awesome-reveal";
+import { useFiltersContext } from "@/contexts/FilterContext";
 
 type ImmobileProps = {
   id: string;
@@ -32,12 +30,15 @@ type ImmobileProps = {
 };
 
 export default function Properties() {
+  const { categories, types, cities } = useFiltersContext();
   const [immobile, setImmobile] = useState<ImmobileProps[]>([]);
-
+  const [immobileFiltered, setImmobileFiltered] =
+    useState<ImmobileProps[]>(immobile);
+  const [arrayLength, setArrayLength] = useState<number>(7);
   useEffect(() => {
     const fetchData = () => {
       try {
-        const data = fetch("https://housesafe-api.vercel.app/recents-immobile")
+        const data = fetch(`${process.env.URL_API}/recents-immobile`)
           .then((response) => response.json())
           .then((data) => setImmobile(data));
       } catch (error) {
@@ -47,21 +48,59 @@ export default function Properties() {
     fetchData();
   }, []);
 
+  useEffect(() => {
+    function filter() {
+      const filtered = immobile.slice(1, arrayLength);
+      setImmobileFiltered(filtered);
+    }
+    filter();
+  }, [arrayLength, immobile]);
+
+  useEffect(() => {
+    //immobileFiltered.filter((immobile) => immobile.address.city))
+  }, []);
+  const increaseArray = () => {
+    setArrayLength(arrayLength + 7);
+  };
   return (
     <main>
       <section
-        className="bg-cover p-5 mt-32 flex items-center flex-col justify-center rounded-2xl text-center"
+        className="bg-cover p-16 mt-32 flex items-center flex-col justify-center rounded-2xl text-center relative lg:h-[50vh] lg:gap-7"
         style={{ backgroundImage: "url(/cover-properties.jpg)" }}
       >
-        <h1 className="font-bold text-white text-xl lg:text-lg">
-          Descubra seu Lar
-        </h1>
-        <p className="text-white font-light text-base">
-          Explore nossa coleção de imóveis disponíveis para compra e aluguel.
-          Encontre o lugar perfeito para chamar de lar!
-        </p>
-        <Filters />
+        <article className="flex flex-col gap-5">
+          <h1 className="font-bold text-white text-xl lg:text-3xl">
+            Descubra seu Lar
+          </h1>
+          <p className="text-white font-light text-base lg:text-xl">
+            Explore nossa coleção de imóveis disponíveis para compra e aluguel.
+            Encontre o lugar perfeito para chamar de lar!
+          </p>
+        </article>
+        <Filters whatPage="properties" />
       </section>
+      <section>
+        <SubTitle
+          text="Ofertas especiais para quem busca um investimento certeiro."
+          subtitle="Escolha seu Espaço"
+        />
+        <div className="w-full flex grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-3">
+          {immobileFiltered.map((immobile, index) => (
+            <Fade key={index}>
+              <CardCarousel immobile={immobile} whatPage="properties" />
+            </Fade>
+          ))}
+        </div>
+        <div className="w-full text-center my-10">
+          <button
+            className="bg-secondary hover:bg-secondary-hover text-white font-light uppercase px-7 py-2 rounded-xl text-base transition-colors"
+            onClick={increaseArray}
+          >
+            carregar mais
+          </button>
+        </div>
+      </section>
+      <Footer />
     </main>
   );
 }
