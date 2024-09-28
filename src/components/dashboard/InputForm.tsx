@@ -1,4 +1,4 @@
-import { TInput } from "@/types/all";
+import { TInput } from "@/models/types/all";
 import React from "react";
 
 const InputForm = (props: TInput) => {

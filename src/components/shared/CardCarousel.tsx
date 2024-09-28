@@ -1,13 +1,24 @@
 import { IImmobileItemProps } from "@/models/intefaces/all";
+import { TWhatPage } from "@/models/types/all";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
 type Props = {};
 
-const CardCarousel = ({ immobile }: { immobile: IImmobileItemProps }) => {
+const CardCarousel = ({
+  immobile,
+  whatPage,
+}: {
+  immobile: IImmobileItemProps;
+  whatPage: TWhatPage;
+}) => {
   return (
-    <div className="relative flex flex-col text-gray-700 bg-white bg-clip-border rounded-xl border border-solid border-gray-400 border-opacity-30 w-full mx-4">
+    <div
+      className={`relative flex flex-col text-gray-700 bg-white bg-clip-border rounded-xl border border-solid border-gray-400 border-opacity-30 w-full ${
+        whatPage === "properties" ? "" : "mx-4"
+      }`}
+    >
       <div className="relative h-56 m-4 overflow-hidden text-white bg-clip-border rounded-xl">
         <Image
           src={immobile.Images[0].url}

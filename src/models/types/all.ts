@@ -26,3 +26,4 @@ type TCatAndType = {
 };
 
 export type { TInput, TBroker, TCatAndType }
+export type TWhatPage = "properties" | "home"

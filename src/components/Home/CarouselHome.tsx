@@ -2,7 +2,7 @@
 import React, { useEffect, useState } from "react";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
-import CardCarousel from "./CardCarousel";
+import CardCarousel from "../shared/CardCarousel";
 import { IImmobileItemProps } from "@/models/intefaces/all";
 import ArrowCarousel from "./ArrowCarousel";
 import { Sides } from "@/models/enums/all";

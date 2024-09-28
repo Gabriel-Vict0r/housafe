@@ -1,7 +1,7 @@
 import React from "react";
 import { MdEmail } from "react-icons/md";
 import { FaKey } from "react-icons/fa";
-import { TInput } from "@/types/all";
+import { TInput } from "@/models/types/all";
 const Input = (props: TInput) => {
   const Icon = () => {
     switch (props.type) {

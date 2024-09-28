@@ -1,7 +1,7 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import InputForm from "./InputForm";
-import { TBroker, TCatAndType } from "@/types/all";
+import { TBroker, TCatAndType } from "@/models/types/all";
 import SelectInput from "./SelectInput";
 import { states } from "@/lib/utils";
 import { useFormik } from "formik";

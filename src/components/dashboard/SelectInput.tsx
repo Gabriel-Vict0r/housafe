@@ -1,4 +1,4 @@
-import { TBroker, TCatAndType } from "@/types/all";
+import { TBroker, TCatAndType } from "@/models/types/all";
 import { ChangeEventHandler } from "react";
 
 type Props = {

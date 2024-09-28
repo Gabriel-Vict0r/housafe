@@ -8,6 +8,7 @@ import { oportunities } from "@/utils/contentOportunities";
 import CarouselHome from "@/components/Home/CarouselHome";
 import NewsLetterForm from "@/components/Home/NewsLetterForm";
 import { Fade } from "react-awesome-reveal";
+import SubTitle from "@/components/shared/SubTitle";
 export default function Home() {
   return (
     <main className="mt-32">
@@ -23,7 +24,7 @@ export default function Home() {
               Oferecemos as melhores opções para você comprar, <br /> vender ou
               alugar com facilidade e segurança.
             </p>
-            <Filters />
+            <Filters whatPage="home" />
           </div>
 
           <Image
@@ -37,13 +38,10 @@ export default function Home() {
       </Fade>
 
       <Fade direction="up">
-        <div className="mt-[240px] md:mt-[290px] lg:mt-10 flex flex-col justify-center items-center m-auto text-center p-5">
-          <p className="text-base font-normal">
-            Ofertas especiais para quem busca um investimento certeiro.
-          </p>
-          <p className="font-bold text-3xl pt-2">Oportunidades Exclusivas</p>
-        </div>
-
+        <SubTitle
+          text="Ofertas especiais para quem busca um investimento certeiro."
+          subtitle="Oportunidades Exclusivas"
+        />
         <section className="flex flex-col gap-5 p-5 lg:flex-row lg:flex-nowrap">
           {oportunities.map((value, index: number) => (
             <Oportunity

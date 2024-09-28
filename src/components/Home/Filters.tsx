@@ -7,9 +7,9 @@ import getFilters from "@/utils/functionFetch";
 import { IoIosSearch } from "react-icons/io";
 import { useFormik } from "formik";
 import { useFiltersContext } from "@/contexts/FilterContext";
-type Props = {};
+import { TWhatPage } from "@/models/types/all";
 
-const Filters = (props: Props) => {
+const Filters = ({ whatPage }: { whatPage: TWhatPage }) => {
   const { types, setTypes, cities, setCities, categories, setCategories } =
     useFiltersContext();
   useEffect(() => {
@@ -54,7 +54,9 @@ const Filters = (props: Props) => {
     <>
       {types.length > 0 && categories.length > 0 && cities.length > 0 ? (
         <form
-          className="w-full rounded-3xl bg-white text-color-text-filter p-4 absolute bottom-[-170px] pb-8 lg:pb-4 left-0 shadow-2xl md:bottom-[-230px] lg:relative lg:bottom-0 lg:flex lg:gap-4 lg:rounded-full text-center lg:items-center lg:mt-5"
+          className={`w-full rounded-3xl bg-white text-color-text-filter p-4 absolute ${
+            whatPage == "home" ? "bottom-[-170px]" : "bottom-[-200px]"
+          } pb-8 lg:pb-4 left-0 shadow-2xl md:bottom-[-230px] lg:relative lg:bottom-0 lg:flex lg:gap-4 lg:rounded-full text-center lg:items-center lg:mt-5 lg:max-w-[1100px]`}
           method="POST"
           onSubmit={formik.handleSubmit}
         >
