@@ -7,34 +7,20 @@ import SubTitle from "@/components/shared/SubTitle";
 import CardCarousel from "@/components/shared/CardCarousel";
 import { Fade } from "react-awesome-reveal";
 import { useFiltersContext } from "@/contexts/FilterContext";
-
-type ImmobileProps = {
-  id: string;
-  title: string;
-  description: string;
-  bedrooms: number;
-  size: number;
-  address: {
-    city: string;
-    state: string;
-  };
-  type: {
-    description: string;
-  };
-  Images: [
-    {
-      id: string;
-      url: string;
-    }
-  ];
-};
+import { ImmobileProps } from "@/models/intefaces/all";
 
 export default function Properties() {
-  const { categories, types, cities } = useFiltersContext();
-  const [immobile, setImmobile] = useState<ImmobileProps[]>([]);
-  const [immobileFiltered, setImmobileFiltered] =
-    useState<ImmobileProps[]>(immobile);
-  const [arrayLength, setArrayLength] = useState<number>(7);
+  const {
+    categories,
+    types,
+    cities,
+    immobile,
+    setImmobile,
+    immobileFiltered,
+    setImmobileFiltered,
+    arrayLength,
+    setArrayLength,
+  } = useFiltersContext();
   useEffect(() => {
     const fetchData = () => {
       try {
@@ -54,11 +40,9 @@ export default function Properties() {
       setImmobileFiltered(filtered);
     }
     filter();
+    console.log(immobileFiltered);
   }, [arrayLength, immobile]);
 
-  useEffect(() => {
-    //immobileFiltered.filter((immobile) => immobile.address.city))
-  }, []);
   const increaseArray = () => {
     setArrayLength(arrayLength + 7);
   };
