@@ -8,6 +8,7 @@ import CardCarousel from "@/components/shared/CardCarousel";
 import { Fade } from "react-awesome-reveal";
 import { useFiltersContext } from "@/contexts/FilterContext";
 import { ImmobileProps } from "@/models/intefaces/all";
+import Header from "@/components/Header";
 
 export default function Properties() {
   const {
@@ -48,6 +49,7 @@ export default function Properties() {
   };
   return (
     <main>
+      <Header />
       <section
         className="bg-cover p-16 mt-32 flex items-center flex-col justify-center rounded-2xl text-center relative lg:h-[50vh] lg:gap-7"
         style={{ backgroundImage: "url(/cover-properties.jpg)" }}

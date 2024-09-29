@@ -9,6 +9,7 @@ import { useRouter } from "next/navigation";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
+import Header from "../Header";
 
 const WrapPage = () => {
   const router = useRouter();
@@ -40,6 +41,7 @@ const WrapPage = () => {
   });
   return (
     <main className="w-full flex gap-2 md:flex-1 justify-center items-center overflow-hidden mt-40">
+      <Header />
       <form
         method="post"
         className="w-4/5 md:w-1/2 flex flex-col gap-6 md:px-5 lg:px-28"

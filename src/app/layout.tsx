@@ -23,7 +23,6 @@ export default function RootLayout({
   return (
     <html lang="pt-BR">
       <body className={`${poppins.className} px-3 lg:px-10`}>
-        <Header />
         <FiltersProvider>{children}</FiltersProvider>
       </body>
     </html>
