@@ -1,6 +1,10 @@
 "use client";
 
-import { IType } from "@/models/intefaces/all";
+import {
+  IImmobileItemProps,
+  ImmobileProps,
+  IType,
+} from "@/models/intefaces/all";
 import React, { createContext, ReactNode, useContext, useState } from "react";
 
 interface IFilters {
@@ -10,6 +14,12 @@ interface IFilters {
   setCategories: React.Dispatch<React.SetStateAction<IType[]>>;
   cities: IType[];
   setCities: React.Dispatch<React.SetStateAction<IType[]>>;
+  immobile: ImmobileProps[];
+  setImmobile: React.Dispatch<React.SetStateAction<ImmobileProps[]>>;
+  immobileFiltered: ImmobileProps[];
+  setImmobileFiltered: React.Dispatch<React.SetStateAction<ImmobileProps[]>>;
+  arrayLength: number;
+  setArrayLength: React.Dispatch<React.SetStateAction<number>>;
 }
 
 const FiltersContext = createContext<IFilters>({
@@ -19,16 +29,37 @@ const FiltersContext = createContext<IFilters>({
   setCategories: () => {},
   cities: [],
   setCities: () => {},
+  immobile: [],
+  setImmobile: () => {},
+  immobileFiltered: [],
+  setImmobileFiltered: () => {},
+  arrayLength: 7,
+  setArrayLength: () => {},
 });
 
 const FiltersProvider = ({ children }: { children: ReactNode }) => {
   const [types, setTypes] = useState<IType[]>([]);
   const [categories, setCategories] = useState<IType[]>([]);
   const [cities, setCities] = useState<IType[]>([]);
-
+  const [immobile, setImmobile] = useState<ImmobileProps[]>([]);
+  const [immobileFiltered, setImmobileFiltered] = useState<ImmobileProps[]>([]);
+  const [arrayLength, setArrayLength] = useState<number>(7);
   return (
     <FiltersContext.Provider
-      value={{ types, setTypes, categories, setCategories, cities, setCities }}
+      value={{
+        types,
+        setTypes,
+        categories,
+        setCategories,
+        cities,
+        setCities,
+        immobile,
+        setImmobile,
+        immobileFiltered,
+        setImmobileFiltered,
+        arrayLength,
+        setArrayLength,
+      }}
     >
       {children}
     </FiltersContext.Provider>

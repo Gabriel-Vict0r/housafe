@@ -56,3 +56,26 @@ export interface ILinksFooter {
     title: string;
     arrayLinks: ILink[];
 }
+export interface ImmobileProps {
+    id: string;
+    title: string;
+    description: string;
+    bedrooms: number;
+    size: number;
+    address: {
+        city: string;
+        state: string;
+    };
+    category: {
+        description: string;
+    }
+    type: {
+        description: string;
+    };
+    Images: [
+        {
+            id: string;
+            url: string;
+        }
+    ];
+};

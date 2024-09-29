@@ -10,8 +10,20 @@ import { useFiltersContext } from "@/contexts/FilterContext";
 import { TWhatPage } from "@/models/types/all";
 
 const Filters = ({ whatPage }: { whatPage: TWhatPage }) => {
-  const { types, setTypes, cities, setCities, categories, setCategories } =
-    useFiltersContext();
+  const {
+    types,
+    setTypes,
+    cities,
+    setCities,
+    categories,
+    setCategories,
+    immobile,
+    setImmobile,
+    immobileFiltered,
+    setImmobileFiltered,
+    arrayLength,
+    setArrayLength,
+  } = useFiltersContext();
   useEffect(() => {
     const fetchFilters = async () => {
       const typesFetch = await getFilters("get-types");
@@ -42,12 +54,29 @@ const Filters = ({ whatPage }: { whatPage: TWhatPage }) => {
 
   const formik = useFormik({
     initialValues: {
-      type: "venda",
-      category: "casa",
-      city: "BARREIRAS",
+      type: "",
+      category: "",
+      city: "",
     },
     onSubmit: (values) => {
-      console.log(values, "vai redirecionar para outra página.");
+      const filters = immobile.filter((immobile) => {
+        return (
+          immobile.type.description.toLowerCase() ===
+            (values.type === ""
+              ? immobile.type.description.toLowerCase()
+              : values.type.toLowerCase()) &&
+          immobile.address.city.toLowerCase() ===
+            (values.city === ""
+              ? immobile.address.city.toLowerCase()
+              : values.city.toLowerCase()) &&
+          immobile.category.description.toLowerCase() ===
+            (values.category === ""
+              ? immobile.category.description.toLowerCase()
+              : values.category.toLowerCase())
+        );
+      });
+      setImmobileFiltered(filters.slice(1, arrayLength));
+      console.log(immobileFiltered);
     },
   });
   return (

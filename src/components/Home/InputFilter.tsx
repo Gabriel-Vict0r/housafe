@@ -17,12 +17,10 @@ const InputFilter = ({ arrTypes, name, label, handleInput }: IInputLocal) => {
       defaultValue={label}
       onChange={handleInput}
     >
-      <option value={label} disabled>
-        {label}
-      </option>
+      <option value="">{label}</option>
       {arrTypes.map((type) => (
         <option
-          value={type.id}
+          value={type.description}
           className="text-color-text-filter "
           key={type.id}
         >
