@@ -21,6 +21,9 @@ export default function Properties() {
     setImmobileFiltered,
     arrayLength,
     setArrayLength,
+    type,
+    category,
+    city,
   } = useFiltersContext();
   useEffect(() => {
     const fetchData = () => {
@@ -36,11 +39,14 @@ export default function Properties() {
   }, []);
 
   useEffect(() => {
+    const condition = !category && !city && !type;
     function filter() {
       const filtered = immobile.slice(1, arrayLength);
       setImmobileFiltered(filtered);
     }
-    filter();
+    if (condition) {
+      filter();
+    }
     console.log(immobileFiltered);
   }, [arrayLength, immobile]);
 
