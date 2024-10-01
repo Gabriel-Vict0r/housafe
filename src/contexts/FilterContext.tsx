@@ -51,7 +51,7 @@ const FiltersProvider = ({ children }: { children: ReactNode }) => {
   const [cities, setCities] = useState<IType[]>([]);
   const [immobile, setImmobile] = useState<ImmobileProps[]>([]);
   const [immobileFiltered, setImmobileFiltered] = useState<ImmobileProps[]>([]);
-  const [arrayLength, setArrayLength] = useState<number>(7);
+  const [arrayLength, setArrayLength] = useState<number>(6);
   const [type, setType] = useState<string>("");
   const [category, setCategory] = useState<string>("");
   const [city, setCity] = useState<string>("");

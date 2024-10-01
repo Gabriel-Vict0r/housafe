@@ -65,6 +65,7 @@ const Filters = ({ whatPage }: { whatPage: TWhatPage }) => {
     city: string;
   }
   const setFilters = (values: IValuesfilters) => {
+    console.log(immobile);
     const filters = immobile.filter((immobile) => {
       return (
         immobile.type.description.toLowerCase() ===
@@ -81,8 +82,8 @@ const Filters = ({ whatPage }: { whatPage: TWhatPage }) => {
             : category.toLowerCase())
       );
     });
-    //console.log(filters);
-    setImmobileFiltered(filters.slice(1, arrayLength));
+    console.log(filters);
+    setImmobileFiltered(filters.slice(0, arrayLength));
     console.log(immobileFiltered);
   };
   const formik = useFormik({

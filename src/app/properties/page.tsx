@@ -41,7 +41,7 @@ export default function Properties() {
   useEffect(() => {
     const condition = !category && !city && !type;
     function filter() {
-      const filtered = immobile.slice(1, arrayLength);
+      const filtered = immobile.slice(0, arrayLength);
       setImmobileFiltered(filtered);
     }
     if (condition) {
