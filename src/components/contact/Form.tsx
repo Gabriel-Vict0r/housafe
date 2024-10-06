@@ -2,6 +2,7 @@
 import React from "react";
 import Input from "./Input";
 import { useFormik } from "formik";
+import TextArea from "./TextArea";
 
 type Props = {};
 
@@ -11,11 +12,16 @@ const Form = (props: Props) => {
       nome: "",
       email: "",
       phone: "",
+      message: "",
     },
     onSubmit: () => {},
   });
   return (
-    <form action="" method="post" className="bg-bg-icons rounded-3xl p-5">
+    <form
+      action=""
+      method="post"
+      className="bg-bg-icons rounded-3xl p-5 w-full xl:w-1/2"
+    >
       <h2 className="font-bold text-primary text-xl my-5">
         Envie-nos uma mensagem
       </h2>
@@ -45,6 +51,14 @@ const Form = (props: Props) => {
         value={formik.values.phone}
         handle={formik.handleChange}
         error={formik.errors.phone}
+      />
+      <TextArea
+        label="Mensagem"
+        placeholder="Digite sua mensagem"
+        name="message"
+        value={formik.values.message}
+        handleTxtArea={formik.handleChange}
+        error={formik.errors.message}
       />
     </form>
   );

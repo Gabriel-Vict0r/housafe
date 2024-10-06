@@ -20,7 +20,14 @@ export default function Contact() {
           o mais breve possível.
         </p>
       </section>
-      <section className="my-10">
+      <section className="my-10 flex justify-between gap-5">
+        <Image
+          src="/about_img.svg"
+          width={505}
+          height={253.15}
+          alt="Ilustração para entrar em contato"
+          className="hidden lg:block xl:w-[600px]"
+        />
         <Form />
       </section>
       <Footer />
