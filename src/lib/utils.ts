@@ -1,4 +1,3 @@
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { type ClassValue, clsx } from "clsx"
 import { getServerSession } from "next-auth";
 import { redirect } from "next/navigation";

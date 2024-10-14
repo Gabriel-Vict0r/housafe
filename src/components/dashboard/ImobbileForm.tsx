@@ -6,7 +6,6 @@ import SelectInput from "./SelectInput";
 import { states } from "@/lib/utils";
 import { useFormik } from "formik";
 import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
 import { getSession, useSession } from "next-auth/react";
 import { getToken } from "next-auth/jwt";
 import TitlePage from "./TitlePage";
