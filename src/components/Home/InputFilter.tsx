@@ -7,8 +7,15 @@ interface IInputLocal {
   name: string;
   label: string;
   handleInput: React.ChangeEventHandler;
+  defaultValue: string;
 }
-const InputFilter = ({ arrTypes, name, label, handleInput }: IInputLocal) => {
+const InputFilter = ({
+  arrTypes,
+  name,
+  label,
+  handleInput,
+  defaultValue,
+}: IInputLocal) => {
   return (
     <select
       name={name}

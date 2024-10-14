@@ -1,5 +1,5 @@
 import { getServerSession } from "next-auth";
-import { authOptions } from "../api/auth/[...nextauth]/route";
+import { GET } from "../api/auth/[...nextauth]/route";
 import { redirect } from "next/navigation";
 import SideBar from "@/components/dashboard/SideBar";
 import NavBar from "@/components/dashboard/NavBar";
@@ -9,7 +9,7 @@ interface PrivateLayoutProps {
 }
 
 export default async function PrivateLayout({ children }: PrivateLayoutProps) {
-  const session = await getServerSession(authOptions);
+  const session = await getServerSession(GET);
   //console.log(session);
   if (!session) {
     redirect("/admin");

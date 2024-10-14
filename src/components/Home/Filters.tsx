@@ -5,9 +5,10 @@ import { fetchFilter } from "@/app/actions";
 import { IType } from "@/models/intefaces/all";
 import getFilters from "@/utils/functionFetch";
 import { IoIosSearch } from "react-icons/io";
-import { useFormik } from "formik";
+import { FormikProps, useFormik } from "formik";
 import { useFiltersContext } from "@/contexts/FilterContext";
 import { TWhatPage } from "@/models/types/all";
+import { redirect, useRouter } from "next/navigation";
 
 const Filters = ({ whatPage }: { whatPage: TWhatPage }) => {
   const {
@@ -18,13 +19,19 @@ const Filters = ({ whatPage }: { whatPage: TWhatPage }) => {
     categories,
     setCategories,
     immobile,
-    setImmobile,
     immobileFiltered,
     setImmobileFiltered,
     arrayLength,
-    setArrayLength,
+    category,
+    city,
+    type,
+    setCategory,
+    setCity,
+    setType,
   } = useFiltersContext();
+  const router = useRouter();
   useEffect(() => {
+    //console.log(type, category, city);
     const fetchFilters = async () => {
       const typesFetch = await getFilters("get-types");
       setTypes(typesFetch);
@@ -52,33 +59,59 @@ const Filters = ({ whatPage }: { whatPage: TWhatPage }) => {
     fetchFilters();
   }, []);
 
+  interface IValuesfilters {
+    type: string;
+    category: string;
+    city: string;
+  }
+  const setFilters = (values: IValuesfilters) => {
+    console.log(immobile);
+    const filters = immobile.filter((immobile) => {
+      return (
+        immobile.type.description.toLowerCase() ===
+          (type === ""
+            ? immobile.type.description.toLowerCase()
+            : type.toLowerCase()) &&
+        immobile.address.city.toLowerCase() ===
+          (city === ""
+            ? immobile.address.city.toLowerCase()
+            : city.toLowerCase()) &&
+        immobile.category.description.toLowerCase() ===
+          (category === ""
+            ? immobile.category.description.toLowerCase()
+            : category.toLowerCase())
+      );
+    });
+    console.log(filters);
+    setImmobileFiltered(filters.slice(0, arrayLength));
+    console.log(immobileFiltered);
+  };
   const formik = useFormik({
     initialValues: {
-      type: "",
-      category: "",
-      city: "",
+      type: type,
+      category: category,
+      city: city,
     },
     onSubmit: (values) => {
-      const filters = immobile.filter((immobile) => {
-        return (
-          immobile.type.description.toLowerCase() ===
-            (values.type === ""
-              ? immobile.type.description.toLowerCase()
-              : values.type.toLowerCase()) &&
-          immobile.address.city.toLowerCase() ===
-            (values.city === ""
-              ? immobile.address.city.toLowerCase()
-              : values.city.toLowerCase()) &&
-          immobile.category.description.toLowerCase() ===
-            (values.category === ""
-              ? immobile.category.description.toLowerCase()
-              : values.category.toLowerCase())
-        );
-      });
-      setImmobileFiltered(filters.slice(1, arrayLength));
-      console.log(immobileFiltered);
+      setCategory(values.category);
+      setType(values.type);
+      setCity(values.city);
+      //console.log(category, type, city);
+      if (whatPage === "properties") {
+        setFilters(values);
+      } else {
+        //setFilters(values);
+        //setFilters({ type, category, city });
+        //console.log(type, category, city);
+        router.push("/properties");
+      }
+      //console.log(immobileFiltered);
     },
   });
+  useEffect(() => {
+    setFilters({ type, category, city });
+    console.log(immobileFiltered);
+  }, []);
   return (
     <>
       {types.length > 0 && categories.length > 0 && cities.length > 0 ? (
@@ -93,18 +126,21 @@ const Filters = ({ whatPage }: { whatPage: TWhatPage }) => {
             arrTypes={types}
             name="type"
             label="Tipo"
+            defaultValue={type}
             handleInput={formik.handleChange}
           />
           <InputFilter
             arrTypes={categories}
             name="category"
             label="Categoria"
+            defaultValue={category}
             handleInput={formik.handleChange}
           />
           <InputFilter
             arrTypes={cities}
             name="city"
             label="Cidade"
+            defaultValue={city}
             handleInput={formik.handleChange}
           />
           <div className="w-full absolute bottom-[-40px] left-0 lg:w-auto lg:!static">

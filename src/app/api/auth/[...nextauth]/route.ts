@@ -72,4 +72,4 @@ const getTokenjwt = async (req: any, res: any) => {
 
 const handler = NextAuth(authOptions)
 
-export { handler as GET, handler as POST, authOptions, getTokenjwt }
+export { handler as GET, handler as POST }

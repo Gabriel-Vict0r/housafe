@@ -1,6 +1,6 @@
 "use client";
 import React, { useEffect, useState } from "react";
-import { authOptions, getTokenjwt } from "@/app/api/auth/[...nextauth]/route";
+import { GET } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 import TitlePage from "@/components/dashboard/TitlePage";
 import BtnAdd from "@/components/dashboard/BtnAdd";

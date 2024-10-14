@@ -1,12 +1,13 @@
-import { ChangeEventHandler, InputHTMLAttributes } from "react";
+import React, { ChangeEventHandler, InputHTMLAttributes } from "react";
 
 
 type TInput = {
     name: string;
     label: string;
-    type: React.HTMLInputTypeAttribute | undefined;
+    type?: React.HTMLInputTypeAttribute | undefined;
     placeholder: string;
     handle?: React.ChangeEventHandler<HTMLInputElement>;
+    handleTxtArea?: React.ChangeEventHandler<HTMLTextAreaElement>;
     value?: string | number | readonly string[] | undefined;
     error?: string | undefined;
 }

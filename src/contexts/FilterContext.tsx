@@ -1,10 +1,6 @@
 "use client";
 
-import {
-  IImmobileItemProps,
-  ImmobileProps,
-  IType,
-} from "@/models/intefaces/all";
+import { ImmobileProps, IType } from "@/models/intefaces/all";
 import React, { createContext, ReactNode, useContext, useState } from "react";
 
 interface IFilters {
@@ -20,6 +16,12 @@ interface IFilters {
   setImmobileFiltered: React.Dispatch<React.SetStateAction<ImmobileProps[]>>;
   arrayLength: number;
   setArrayLength: React.Dispatch<React.SetStateAction<number>>;
+  city: string;
+  setCity: React.Dispatch<React.SetStateAction<string>>;
+  category: string;
+  setCategory: React.Dispatch<React.SetStateAction<string>>;
+  type: string;
+  setType: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const FiltersContext = createContext<IFilters>({
@@ -35,6 +37,12 @@ const FiltersContext = createContext<IFilters>({
   setImmobileFiltered: () => {},
   arrayLength: 7,
   setArrayLength: () => {},
+  city: "",
+  setCity: () => {},
+  category: "",
+  setCategory: () => {},
+  type: "",
+  setType: () => {},
 });
 
 const FiltersProvider = ({ children }: { children: ReactNode }) => {
@@ -43,7 +51,10 @@ const FiltersProvider = ({ children }: { children: ReactNode }) => {
   const [cities, setCities] = useState<IType[]>([]);
   const [immobile, setImmobile] = useState<ImmobileProps[]>([]);
   const [immobileFiltered, setImmobileFiltered] = useState<ImmobileProps[]>([]);
-  const [arrayLength, setArrayLength] = useState<number>(7);
+  const [arrayLength, setArrayLength] = useState<number>(6);
+  const [type, setType] = useState<string>("");
+  const [category, setCategory] = useState<string>("");
+  const [city, setCity] = useState<string>("");
   return (
     <FiltersContext.Provider
       value={{
@@ -59,6 +70,12 @@ const FiltersProvider = ({ children }: { children: ReactNode }) => {
         setImmobileFiltered,
         arrayLength,
         setArrayLength,
+        city,
+        setCity,
+        category,
+        setCategory,
+        type,
+        setType,
       }}
     >
       {children}
