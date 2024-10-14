@@ -1,9 +1,6 @@
 import Footer from "@/components/Footer/Footer";
 import Header from "@/components/Header";
 import Image from "next/image";
-
-import aboutImg from "../../../public/about_img.svg";
-import Input from "@/components/contact/Input";
 import Form from "@/components/contact/Form";
 
 export default function Contact() {

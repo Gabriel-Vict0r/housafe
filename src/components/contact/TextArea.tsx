@@ -19,7 +19,7 @@ const TextArea = (props: TInput) => {
           value={props.value}
         />
       </label>
-      <span className="text-secondary-hover text-xl">{props.error}</span>
+      <span className="text-secondary-hover text-base">{props.error}</span>
     </div>
   );
 };
