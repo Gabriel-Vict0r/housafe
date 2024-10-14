@@ -64,7 +64,7 @@ const CarouselHome = (props: Props) => {
       className="w-full"
     >
       {immobile.map((immobile, index) => (
-        <CardCarousel immobile={immobile} key={index} />
+        <CardCarousel immobile={immobile} key={index} whatPage="home" />
       ))}
     </Carousel>
   );
