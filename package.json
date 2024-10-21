@@ -33,6 +33,7 @@
     "sweetalert2": "11.14.3",
     "sweetalert2-react-content": "^5.0.7",
     "winston": "^3.13.0",
+    "yet-another-react-lightbox": "3.21.6",
     "yup": "1.4.0",
     "yup-locale-pt": "0.0.9"
   },

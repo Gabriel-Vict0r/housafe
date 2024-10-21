@@ -10,6 +10,7 @@ type TInput = {
     handleTxtArea?: React.ChangeEventHandler<HTMLTextAreaElement>;
     value?: string | number | readonly string[] | undefined;
     error?: string | undefined;
+    maxLength?: number;
 }
 type TBroker = {
     id: number;

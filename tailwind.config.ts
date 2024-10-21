@@ -18,6 +18,7 @@ const config: Config = {
         'bg-icons': '#F2F2F2',
         'gray-clean': 'rgba(255, 255, 255, 0.72)',
         'borders': 'rgba(255, 255, 255, 0.19)',
+        'cover-img-immobile': 'rgba(0, 0, 0, 0.38)',
         'color-text-filter': '#727379',
         'bg-header': "#FAFAFA",
         'border-btn': "#BEBEBE",
