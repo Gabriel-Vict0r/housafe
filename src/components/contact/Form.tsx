@@ -78,6 +78,7 @@ const Form = (props: Props) => {
         placeholder="(77) 9 9999-9999"
         type="phone"
         name="phone"
+        maxLength={15}
         value={formik.values.phone}
         handle={formik.handleChange}
         error={formik.errors.phone}
