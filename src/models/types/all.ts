@@ -3,7 +3,7 @@ import React, { ChangeEventHandler, InputHTMLAttributes } from "react";
 
 type TInput = {
     name: string;
-    label: string;
+    label?: string;
     type?: React.HTMLInputTypeAttribute | undefined;
     placeholder: string;
     handle?: React.ChangeEventHandler<HTMLInputElement>;

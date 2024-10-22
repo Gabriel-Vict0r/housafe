@@ -1,12 +1,23 @@
 "use client";
 import Image from "next/image";
 import React from "react";
+import InputFormBroker from "./InputFormBroker";
+import { useFormik } from "formik";
 
 type Props = {};
 
 const BrokerFormPage = (props: Props) => {
+  const formik = useFormik({
+    initialValues: {
+      name: "",
+      email: "",
+      phone: "",
+      message: "",
+    },
+    onSubmit: async () => {},
+  });
   return (
-    <div className="rounded-xl bg-secondary p-5">
+    <div className="rounded-xl bg-secondary p-10">
       <h3 className="font-normal text-white text-2xl mb-5">Corretor</h3>
       <div className="flex gap-5">
         <Image
@@ -22,7 +33,22 @@ const BrokerFormPage = (props: Props) => {
           <p className="text-gray-300">corretor@gmail.com</p>
         </article>
       </div>
-      <form action=""></form>
+      <form action="" className="my-5">
+        <InputFormBroker
+          name="nome"
+          placeholder="Nome"
+          type="text"
+          value=""
+          handle={() => console.log("ok")}
+        />
+        <InputFormBroker
+          name=""
+          placeholder="Nome"
+          type="text"
+          value=""
+          handle={() => console.log("ok")}
+        />
+      </form>
     </div>
   );
 };
