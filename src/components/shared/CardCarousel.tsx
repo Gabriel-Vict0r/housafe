@@ -1,4 +1,4 @@
-import { IImmobileItemProps } from "@/models/intefaces/all";
+import { IImmobileItemProps, ImmobileProps } from "@/models/intefaces/all";
 import { TWhatPage } from "@/models/types/all";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,7 +10,7 @@ const CardCarousel = ({
   immobile,
   whatPage,
 }: {
-  immobile: IImmobileItemProps;
+  immobile: ImmobileProps;
   whatPage: TWhatPage;
 }) => {
   return (

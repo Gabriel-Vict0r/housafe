@@ -47,7 +47,7 @@ async function fetchImmobile(id: string) {
   return immobile.json();
 }
 
-export default async function ImmobileSinglePage({ params }: Params) {
+export default async function ImmobileSinglePage({ params }: any) {
   //GET IMMOBILE
   const { id } = params;
   const immobile: ImmobileProps = await fetchImmobile(id);
