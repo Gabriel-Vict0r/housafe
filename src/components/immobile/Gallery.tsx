@@ -1,15 +1,29 @@
 "use client";
-import React, { useState } from "react";
-import LightBox from "yet-another-react-lightbox";
+import React, { useEffect, useState } from "react";
+import LightBox, { SlideImage } from "yet-another-react-lightbox";
 import NextJsImage from "./NextImage";
 import "yet-another-react-lightbox/styles.css";
 import Image from "next/image";
 import { TbPhotoSearch } from "react-icons/tb";
 
-type Props = {};
+interface IImage {
+  id: number;
+  id_immobile: number;
+  url: string;
+}
 
-const Gallery = (props: Props) => {
+const Gallery = ({ arr, alt }: { arr: Array<IImage>; alt: string }) => {
   const [open, setOpen] = useState<boolean>();
+  const [arrImages, setArrImages] = useState<SlideImage[]>([]);
+  // const slides = arr.map((element) => {
+  //   src: element;
+  // });
+  useEffect(() => {
+    arr.map((element) => {
+      setArrImages((prevImages) => [...prevImages, { src: element.url }]);
+    });
+  }, []);
+  console.log(arrImages);
   return (
     <>
       <button
@@ -20,31 +34,23 @@ const Gallery = (props: Props) => {
           <div className=" text-white text-center flex flex-col items-center">
             <TbPhotoSearch className="text-xl" />
             <p className="text-white text-xl">Ver todas</p>
-            <span>12 fotos</span>
+            <span>
+              {arrImages.length > 1 ? `${arrImages.length} fotos` : "1 foto"}
+            </span>
           </div>
         </div>
         <Image
-          src="/hotel.png"
+          src={arr[0].url}
           width={847}
           height={549}
-          alt="teste"
+          alt={`Imagem de ${alt}`}
           className="object-cover h-full rounded-3xl"
         />
       </button>
       <LightBox
         open={open}
         close={() => setOpen(false)}
-        slides={[
-          {
-            src: "https://yet-another-react-lightbox.com/images/image01.jpeg",
-          },
-          {
-            src: "https://yet-another-react-lightbox.com/images/image02.jpeg",
-          },
-          {
-            src: "https://yet-another-react-lightbox.com/images/image03.jpeg",
-          },
-        ]}
+        slides={arrImages}
         render={{ slide: NextJsImage }}
         className="z-[999]"
       />
