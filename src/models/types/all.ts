@@ -3,6 +3,7 @@ import React, { ChangeEventHandler, InputHTMLAttributes } from "react";
 
 type TInput = {
     name: string;
+    typeInput?: "input" | "textarea"
     label?: string;
     type?: React.HTMLInputTypeAttribute | undefined;
     placeholder: string;

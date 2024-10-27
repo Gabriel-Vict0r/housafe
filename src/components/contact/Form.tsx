@@ -27,7 +27,7 @@ const Form = (props: Props) => {
           method: "POST",
           body: JSON.stringify(message),
         });
-        console.log(result.status);
+        //console.log(result.status);
         if (result.status === 201) {
           Swal.fire({
             title: "Enviado!",
