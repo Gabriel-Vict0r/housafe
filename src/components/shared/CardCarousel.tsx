@@ -1,4 +1,4 @@
-import { IImmobileItemProps } from "@/models/intefaces/all";
+import { IImmobileItemProps, ImmobileProps } from "@/models/intefaces/all";
 import { TWhatPage } from "@/models/types/all";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,7 +10,7 @@ const CardCarousel = ({
   immobile,
   whatPage,
 }: {
-  immobile: IImmobileItemProps;
+  immobile: ImmobileProps;
   whatPage: TWhatPage;
 }) => {
   return (
@@ -47,16 +47,16 @@ const CardCarousel = ({
             height={22}
             alt="Icone de cômodo"
           />
-          <span>4 cômodo(s)</span>
+          <span>{immobile.bedrooms} cômodo(s)</span>
         </div>
         <div className="flex gap-2 items-center justify-end w-1/2">
           <Image src="/area.png" width={20} height={22} alt="Icone de cômodo" />
-          <span>240m²</span>
+          <span>{immobile.size}m²</span>
         </div>
       </div>
       <div className="p-6 pt-2">
         <Link
-          href="/"
+          href={`/immobiles/${immobile.id}`}
           className="bg-primary text-white p-2 rounded-xl transition-colors hover:bg-black"
         >
           Saiba Mais

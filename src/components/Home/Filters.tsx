@@ -123,7 +123,7 @@ const Filters = ({ whatPage }: { whatPage: TWhatPage }) => {
   });
   useEffect(() => {
     setFilters({ type, category, city });
-    console.log(immobileFiltered);
+    //console.log(immobileFiltered);
   }, []);
   return (
     <>

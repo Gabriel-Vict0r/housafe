@@ -1,9 +1,23 @@
 import { TInput } from "@/models/types/all";
-import React from "react";
+import { phoneMask } from "@/utils/phoneMask";
+import React, { useState } from "react";
 
 type Props = {};
 
 const Input = (props: TInput) => {
+  const [value, setValue] = useState(props.value);
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    let newValue = event.currentTarget.value;
+    if (props.type === "phone") {
+      newValue = phoneMask(newValue);
+    }
+    setValue(newValue);
+
+    if (props.handle) {
+      props.handle(event);
+    }
+  }
+
   return (
     <div className="flex flex-col gap-2 items-start">
       <label htmlFor={props.label} className="text-primary font-light">
@@ -16,8 +30,9 @@ const Input = (props: TInput) => {
           type={props.type}
           className="grow"
           placeholder={props.placeholder}
-          onChange={props.handle}
-          value={props.value}
+          onChange={handleChange}
+          maxLength={props.maxLength}
+          value={value}
         />
       </label>
       <span className="text-secondary-hover text-base">{props.error}</span>

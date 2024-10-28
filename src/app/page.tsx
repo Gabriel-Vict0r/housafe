@@ -10,10 +10,12 @@ import NewsLetterForm from "@/components/Home/NewsLetterForm";
 import { Fade } from "react-awesome-reveal";
 import SubTitle from "@/components/shared/SubTitle";
 import Header from "@/components/Header";
+import Gallery from "@/components/immobile/Gallery";
 export default function Home() {
   return (
     <main className="mt-32">
       <Header />
+
       <Fade>
         <div className="flex flex-col md:flex-row justify-around w-full p-5 pb-10 bg-gradient-to-r from-secondary to-third rounded-3xl gap-5 relative z-20">
           <div className="flex flex-col pt-10 w-full lg:w-auto">

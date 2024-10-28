@@ -19,31 +19,31 @@ const Form = (props: Props) => {
     validateOnChange: false,
     onSubmit: async (values) => {
       const message = { message: values };
-      console.log(JSON.stringify(message));
-      // try {
-      //   const result = await fetch(`${process.env.URL_API}/create-message`, {
-      //     headers: {
-      //       "content-type": "application/json",
-      //     },
-      //     method: "POST",
-      //     body: JSON.stringify(message),
-      //   });
-      //   if (result.status === 200) {
-      //     Swal.fire({
-      //       title: "Enviado!",
-      //       text: "Seu e-mail foi enviado com sucesso!",
-      //       icon: "success",
-      //       confirmButtonText: "OK",
-      //     });
-      //   }
-      // } catch (error: any) {
-      //   Swal.fire({
-      //     title: "Erro",
-      //     text: `Ocorreu um erro ao enviar o seu email ${String(error)}`,
-      //     icon: "error",
-      //     confirmButtonText: "OK",
-      //   });
-      // }
+      try {
+        const result = await fetch(`${process.env.URL_API}/create-message`, {
+          headers: {
+            "content-type": "application/json",
+          },
+          method: "POST",
+          body: JSON.stringify(message),
+        });
+        //console.log(result.status);
+        if (result.status === 201) {
+          Swal.fire({
+            title: "Enviado!",
+            text: "Seu e-mail foi enviado com sucesso!",
+            icon: "success",
+            confirmButtonText: "OK",
+          });
+        }
+      } catch (error: any) {
+        Swal.fire({
+          title: "Erro",
+          text: `Ocorreu um erro ao enviar o seu email ${String(error)}`,
+          icon: "error",
+          confirmButtonText: "OK",
+        });
+      }
     },
   });
   return (
@@ -78,6 +78,7 @@ const Form = (props: Props) => {
         placeholder="(77) 9 9999-9999"
         type="phone"
         name="phone"
+        maxLength={15}
         value={formik.values.phone}
         handle={formik.handleChange}
         error={formik.errors.phone}

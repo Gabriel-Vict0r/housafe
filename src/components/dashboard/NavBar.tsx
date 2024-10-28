@@ -1,12 +1,14 @@
-import { authOptions } from "@/app/api/auth/[...nextauth]/route";
+import { GET } from "@/app/api/auth/[...nextauth]/route";
 import { getServerSession } from "next-auth";
 import Image from "next/image";
 import React from "react";
 
-type Props = {};
+type ISession = {
+  user: { name: string };
+} | null;
 
 const NavBar = async () => {
-  const session = await getServerSession(authOptions);
+  const session: ISession = await getServerSession(GET);
   return (
     <div className="navbar bg-base-100 justify-between pr-10">
       <div className="flex gap-36 w-2/3">

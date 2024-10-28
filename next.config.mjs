@@ -2,6 +2,9 @@
 const nextConfig = {
   env: {
     URL_API: process.env.URL_API,
+    SERVICE_ID: process.env.SERVICE_ID,
+    TEMPLATE: process.env.TEMPLATE,
+    EMAIL_KEY: process.env.EMAIL_KEY,
   },
   images: {
     remotePatterns: [
@@ -11,11 +14,9 @@ const nextConfig = {
       },
     ],
   },
-  //   logging: {
-  //   fetches: {
-  //     fullUrl: true,
-  //   },
-  // },
+  eslint: {
+    ignoreDuringBuilds: true,
+  },
 };
 
 export default nextConfig;

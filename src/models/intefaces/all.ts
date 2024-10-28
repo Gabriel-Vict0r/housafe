@@ -61,10 +61,19 @@ export interface ImmobileProps {
     title: string;
     description: string;
     bedrooms: number;
+    bathroom: number;
+    vehicle_vacany: number;
+    recreation_area: number;
+    pools: number;
     size: number;
+    price?: number;
+
     address: {
+        street?: string;
+        district?: string;
         city: string;
         state: string;
+        number?: bigint;
     };
     category: {
         description: string;
@@ -74,7 +83,8 @@ export interface ImmobileProps {
     };
     Images: [
         {
-            id: string;
+            id: number;
+            id_immobile: number;
             url: string;
         }
     ];

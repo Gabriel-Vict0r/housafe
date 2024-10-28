@@ -37,7 +37,7 @@ export default function Header() {
       <nav className="flex w-full justify-between z-50">
         <div className="justify-between items-center flex w-full lg:w-auto z-50">
           <Link href="/">
-            <Image src="logo.svg" width={130} height={32} alt="logo" />
+            <Image src="/logo.svg" width={130} height={32} alt="logo" />
           </Link>
           <div className="lg:hidden">
             <Hamburger
