@@ -25,18 +25,6 @@ export default function Properties() {
     category,
     city,
   } = useFiltersContext();
-  useEffect(() => {
-    const fetchData = () => {
-      try {
-        const data = fetch(`${process.env.URL_API}/recents-immobile`)
-          .then((response) => response.json())
-          .then((data) => setImmobile(data));
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    fetchData();
-  }, []);
 
   useEffect(() => {
     const condition = !category && !city && !type;
@@ -50,6 +38,9 @@ export default function Properties() {
     console.log(immobileFiltered);
   }, [arrayLength, immobile]);
 
+  useEffect(() => {
+    console.log("mudou");
+  }, [immobileFiltered]);
   const increaseArray = () => {
     setArrayLength(arrayLength + 7);
   };

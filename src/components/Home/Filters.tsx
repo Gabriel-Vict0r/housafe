@@ -28,8 +28,21 @@ const Filters = ({ whatPage }: { whatPage: TWhatPage }) => {
     setCategory,
     setCity,
     setType,
+    setImmobile,
   } = useFiltersContext();
   const router = useRouter();
+  useEffect(() => {
+    const fetchData = () => {
+      try {
+        const data = fetch(`${process.env.URL_API}/recents-immobile`)
+          .then((response) => response.json())
+          .then((data) => setImmobile(data));
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    fetchData();
+  }, []);
   useEffect(() => {
     //console.log(type, category, city);
     const fetchFilters = async () => {
@@ -65,7 +78,7 @@ const Filters = ({ whatPage }: { whatPage: TWhatPage }) => {
     city: string;
   }
   const setFilters = (values: IValuesfilters) => {
-    console.log(immobile);
+    //console.log(immobile);
     const filters = immobile.filter((immobile) => {
       return (
         immobile.type.description.toLowerCase() ===
@@ -82,9 +95,9 @@ const Filters = ({ whatPage }: { whatPage: TWhatPage }) => {
             : category.toLowerCase())
       );
     });
-    console.log(filters);
+    //console.log(filters);
     setImmobileFiltered(filters.slice(0, arrayLength));
-    console.log(immobileFiltered);
+    immobileFiltered.map((el) => console.log(el));
   };
   const formik = useFormik({
     initialValues: {
@@ -96,7 +109,7 @@ const Filters = ({ whatPage }: { whatPage: TWhatPage }) => {
       setCategory(values.category);
       setType(values.type);
       setCity(values.city);
-      //console.log(category, type, city);
+      console.log(category, type, city);
       if (whatPage === "properties") {
         setFilters(values);
       } else {
