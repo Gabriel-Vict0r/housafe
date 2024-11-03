@@ -13,7 +13,7 @@ const Footer = (props: Props) => {
     <footer className="my-5 p-5 flex flex-col lg:flex-row">
       <div className="flex flex-col gap-5 lg:gap-6">
         <Image src="/logo.svg" width={169} height={32} alt="Logo housafe" />
-        <p className="font-light text-base">
+        <p className="font-light text-sm">
           Descubra segurança e simplicidade com a HouseSafe. Encontre seu lar
           ideal hoje mesmo
         </p>

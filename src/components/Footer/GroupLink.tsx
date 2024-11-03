@@ -7,7 +7,7 @@ type Props = {};
 const GroupLink = ({ groupLinks }: { groupLinks: ILinksFooter }) => {
   return (
     <div className="w-1/2 md:w-1/3">
-      <h5 className="font-bold text-2xl text-primary mb-3">
+      <h5 className="font-bold text-xl text-primary mb-3">
         {groupLinks.title}
       </h5>
       <ul className="flex flex-col gap-2 w-full">
@@ -15,7 +15,7 @@ const GroupLink = ({ groupLinks }: { groupLinks: ILinksFooter }) => {
           <li key={i} className="">
             <Link
               href={link.link}
-              className="break-words text-base font-normal hover:text-secondary transition-colors"
+              className="break-words text-sm font-normal hover:text-secondary transition-colors"
             >
               {link.label}
             </Link>

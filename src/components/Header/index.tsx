@@ -17,19 +17,30 @@ export default function Header() {
       position: "absolute",
       width: "100%",
       height: "auto",
-      top: "0",
+      top: 0,
       left: 0,
-      z: -10,
-      transition: { duration: 0.6, ease: "easeIn" },
+      zIndex: 10,
+      opacity: 1,
+      transition: {
+        duration: 0.5,
+        ease: [0.16, 1, 0.3, 1], // Usando um ease mais suave
+        when: "beforeChildren",
+        staggerChildren: 0.1, // Anima elementos filhos com um leve atraso
+      },
     },
     closed: {
       position: "absolute",
       width: "100%",
-      height: "0px",
-      top: -700,
+      height: 0,
+      top: -200,
       left: 0,
-      z: -10,
-      transition: { duration: 0.6, ease: "easeOut" },
+      zIndex: -10,
+      opacity: 0,
+      //overflow: "hidden", // Esconde o conteúdo enquanto fechado
+      transition: {
+        duration: 0.5,
+        ease: [0.7, 0, 0.84, 0], // Um ease mais pronunciado no fechamento
+      },
     },
   };
   return (
