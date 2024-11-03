@@ -37,10 +37,6 @@ export default function Properties() {
     }
     console.log(immobileFiltered);
   }, [arrayLength, immobile]);
-
-  useEffect(() => {
-    console.log("mudou");
-  }, [immobileFiltered]);
   const increaseArray = () => {
     setArrayLength(arrayLength + 7);
   };

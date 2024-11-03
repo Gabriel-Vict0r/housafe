@@ -78,7 +78,10 @@ const Filters = ({ whatPage }: { whatPage: TWhatPage }) => {
     city: string;
   }
   const setFilters = (values: IValuesfilters) => {
-    //console.log(immobile);
+    setCategory(values.category);
+    setType(values.type);
+    setCity(values.city);
+    console.log(type);
     const filters = immobile.filter((immobile) => {
       return (
         immobile.type.description.toLowerCase() ===
@@ -95,9 +98,9 @@ const Filters = ({ whatPage }: { whatPage: TWhatPage }) => {
             : category.toLowerCase())
       );
     });
-    //console.log(filters);
+    filters.map((el) => console.log(el));
     setImmobileFiltered(filters.slice(0, arrayLength));
-    immobileFiltered.map((el) => console.log(el));
+    //immobileFiltered.map((el) => console.log(el));
   };
   const formik = useFormik({
     initialValues: {
@@ -109,7 +112,8 @@ const Filters = ({ whatPage }: { whatPage: TWhatPage }) => {
       setCategory(values.category);
       setType(values.type);
       setCity(values.city);
-      console.log(category, type, city);
+      console.log(values.type);
+      console.log(type);
       if (whatPage === "properties") {
         setFilters(values);
       } else {
@@ -123,8 +127,7 @@ const Filters = ({ whatPage }: { whatPage: TWhatPage }) => {
   });
   useEffect(() => {
     setFilters({ type, category, city });
-    //console.log(immobileFiltered);
-  }, []);
+  }, [type, category, city]);
   return (
     <>
       {types.length > 0 && categories.length > 0 && cities.length > 0 ? (
