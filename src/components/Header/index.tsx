@@ -80,8 +80,18 @@ export default function Header() {
                   </Link>
                 </li>
                 <li>
-                  <Link href="/contact" onClick={showNavBar}>
+                  <Link href="/about" onClick={showNavBar}>
                     Sobre
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/contact" onClick={showNavBar}>
+                    Contato
+                  </Link>
+                </li>
+                <li className="bg-secondary-64-opacity p-2 rounded-xl text-white mx-10">
+                  <Link href="/admin" onClick={showNavBar}>
+                    Login
                   </Link>
                 </li>
               </ul>
@@ -97,7 +107,7 @@ export default function Header() {
               <LinkAnimated route="/properties" content="Imóveis" />
             </li>
             <li>
-              <LinkAnimated route="/contact" content="sobre" />
+              <LinkAnimated route="/about" content="sobre" />
             </li>
           </ul>
         </div>

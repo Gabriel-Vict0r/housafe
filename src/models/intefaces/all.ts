@@ -89,3 +89,10 @@ export interface ImmobileProps {
         }
     ];
 };
+
+export interface ILeads {
+    leads: number;
+    label: string;
+    sufix?: string;
+    decimals?: number;
+}
